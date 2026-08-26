@@ -10,3 +10,7 @@
 
 # OutSystems Application Pack (Service Studio export for O11 Forge)
 *.oap
+
+
+# Integration Studio backup snapshots (per-save timestamped copies of source/csproj/dll)
+xif/**/Backups/

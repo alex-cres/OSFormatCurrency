@@ -1,6 +1,5 @@
 namespace FormatCurrency.Tests;
 
-public partial class TestHelpers
+internal static partial class TestHelpers
 {
-    // TODO: Add test helpers and data generators
 }

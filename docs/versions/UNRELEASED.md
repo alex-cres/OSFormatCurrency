@@ -8,12 +8,16 @@ Changes in progress — not yet published to OutSystems Forge.
 
 ## Added
 
-- Initial project scaffold — ODC (`net10.0`) and O11 (`net48`) projects with test suites.
+*(nothing yet)*
 
 ## Changed
 
 *(nothing yet)*
 
 ## Fixed
+
+*(nothing yet)*
+
+## Removed
 
 *(nothing yet)*

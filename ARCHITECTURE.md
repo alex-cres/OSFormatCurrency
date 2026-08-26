@@ -18,21 +18,29 @@ FormatCurrency.sln
 ├── FormatCurrency/                 ← ODC external library (net10.0)
 │   ├── FormatCurrency.csproj
 │   ├── IFormatCurrency.cs          ← [OSInterface] declaration
-│   ├── FormatCurrency.cs           ← Implementation
+│   ├── FormatCurrency.cs           ← Implementation (Chinese numeral conversion, formatting, parsing)
+│   ├── FormatCurrencyStructures.cs ← [OSStructure] types: LocaleInfo, ParseDecimalResult
 │   ├── generate_upload_package.ps1
 │   └── resources/
 │       └── icon.png
 ├── FormatCurrency.Tests/           ← ODC xUnit test suite (net10.0)
 │   ├── FormatCurrency.Tests.csproj
-│   └── TestHelpers.cs
+│   ├── TestHelpers.cs
+│   ├── GetCurrencyFormattedByLocaleTests.cs
+│   ├── GetDecimalFromLocaleDecimalStringTests.cs
+│   └── GetLocalesTests.cs
 ├── FormatCurrency.O11/             ← O11 extension (net48)
 │   ├── FormatCurrency.O11.csproj
-│   ├── IssFormatCurrency.cs
+│   ├── IssFormatCurrency.cs        ← O11 interface (Mss-prefixed void methods with out params)
+│   ├── RecLocale.cs                ← O11 Locale structure (ss-prefixed fields)
 │   └── Actions/
-│       └── FormatCurrencyActions.cs
+│       └── FormatCurrencyActions.cs ← CssFormatCurrency : IssFormatCurrency
 └── FormatCurrency.O11.Tests/       ← O11 xUnit test suite (net48)
     ├── FormatCurrency.O11.Tests.csproj
-    └── TestHelpers.cs
+    ├── TestHelpers.cs              ← O11 adapter types (LocaleInfo, ParseDecimalResult, IFormatCurrency wrappers)
+    ├── GetCurrencyFormattedByLocaleTests.cs
+    ├── GetDecimalFromLocaleDecimalStringTests.cs
+    └── GetLocalesTests.cs
 ```
 
 ## 2. Dependencies
@@ -47,4 +55,13 @@ FormatCurrency.sln
 |---------|----------------|---------------|
 | Interface | `IFormatCurrency` | `IssFormatCurrency` |
 | Implementation | `FormatCurrency` | `CssFormatCurrency` |
+| Structures | `LocaleInfo`, `ParseDecimalResult` | `RecLocale` (flat out params for parse result) |
 | Namespace | `FormatCurrency` | `OutSystems.NssFormatCurrency` |
+
+## 4. Public surface
+
+| Server Action | ODC return type | O11 signature style |
+|---------------|----------------|---------------------|
+| `GetCurrencyFormattedByLocale` | `string` | `void Mss…(…, out string)` |
+| `GetLocales` | `List<LocaleInfo>` | `void Mss…(out List<RecLocale>)` |
+| `GetDecimalFromLocaleDecimalString` | `ParseDecimalResult` | `void Mss…(…, out bool, out int, out string, out decimal)` |

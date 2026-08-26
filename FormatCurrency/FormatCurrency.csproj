@@ -10,9 +10,8 @@
     <PackageReference Include="OutSystems.ExternalLibraries.SDK" Version="1.5.0" />
   </ItemGroup>
 
-  <!-- Uncomment after adding the icon file to resources/icon.png -->
-  <!-- <ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="resources\icon.png" />
-  </ItemGroup> -->
+  </ItemGroup>
 
 </Project>

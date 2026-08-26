@@ -18,16 +18,52 @@ Applications that display monetary values to end users need locale-aware formatt
 
 ## Server Actions
 
-> TODO: Document Server Actions once the existing Forge implementations are ported.
+### GetCurrencyFormattedByLocale
+
+Formats a decimal value as a currency string using the specified locale. Supports custom currency symbols, native digit rendering, and Chinese extended/financial numeral systems.
+
+| Parameter | Type | Direction | Description |
+|-----------|------|-----------|-------------|
+| `locale` | `string` | Input | RFC 4646 locale tag (e.g. `en-US`, `pt-PT`, `zh-CN`). Invalid locale falls back to invariant culture. |
+| `value` | `decimal` | Input | The decimal value to format. |
+| `hasCurrency` | `bool` | Input | When `true`, includes the currency symbol in the output. |
+| `currency` | `string` | Input | Custom currency symbol override. Empty string uses the locale default. |
+| `useNativeDigits` | `bool` | Input | When `true`, replaces 0–9 with the locale's native digit characters. |
+| `useChineseExtendedNumbers` | `bool` | Input | When `true` and the locale starts with `zh`, uses the Chinese unit numeral system. Requires `useNativeDigits`. |
+| `useFinancialChinese` | `bool` | Input | When `true`, uses financial Chinese numerals (e.g. 零→壹). Requires `useChineseExtendedNumbers` and `useNativeDigits`. |
+| *(return)* | `string` | Output | The formatted currency string. |
+
+### GetLocales
+
+Returns all .NET-supported locales with their currency formatting rules.
+
+| Parameter | Type | Direction | Description |
+|-----------|------|-----------|-------------|
+| *(return)* | `List<LocaleInfo>` | Output | List of locale records with currency formatting metadata. |
+
+**LocaleInfo fields:** `Name`, `RFC4646`, `CurrencyDecimalDigits`, `CurrencyDecimalSeparator`, `CurrencyGroupSeparator`, `CurrencyGroupSizes`, `CurrencyNegativePattern`, `CurrencyPositivePattern`, `NegativeSign`, `CurrencySymbol`, `NativeDigits`.
+
+### GetDecimalFromLocaleDecimalString
+
+Parses a locale-formatted decimal string back into a decimal value.
+
+| Parameter | Type | Direction | Description |
+|-----------|------|-----------|-------------|
+| `inputLocaleDecimalString` | `string` | Input | The locale-formatted string to parse. |
+| `locale` | `string` | Input | RFC 4646 locale tag the string was written in. |
+| `currency` | `string` | Input | Custom currency symbol override for parsing. Empty string uses the locale default. |
+| *(return)* | `ParseDecimalResult` | Output | Result containing the parsed value or error details. |
+
+**ParseDecimalResult fields:** `IsValidDecimal` (`bool`), `ErrorMessageCode` (`int`: 0 = success, 1 = empty string, 2 = invalid locale, 3 = format error, 4 = other), `ErrorMessage` (`string`), `Value` (`decimal`).
 
 ---
 
 ## Platforms
 
-| Platform | Target Framework | Status |
-|----------|-----------------|--------|
-| ODC | .NET 10 | Scaffold ready — implementation pending |
-| O11 | .NET Framework 4.8 | Scaffold ready — implementation pending |
+| Platform | Target Framework | Forge | Current Version |
+|----------|-----------------|-------|------------------|
+| ODC | .NET 10 | [FormatCurrency](https://www.outsystems.com/forge/component-overview/15800/formatcurrency) | 1.1.0 |
+| O11 | .NET Framework 4.8 | [Format Currency](https://www.outsystems.com/forge/component-overview/10096/format-currency) | 1.1.0 |
 
 ---
 
