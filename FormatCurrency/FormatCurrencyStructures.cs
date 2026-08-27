@@ -1,9 +1,9 @@
 using OutSystems.ExternalLibraries.SDK;
 
-namespace FormatCurrency;
+namespace OutSystems.FormatCurrency;
 
 [OSStructure(Description = "Locale information including currency formatting rules.")]
-public struct LocaleInfo
+public struct Locale
 {
     [OSStructureField(Description = "Display name of the locale (e.g. 'English (United States)').")]
     public string Name { get; set; }
@@ -37,20 +37,4 @@ public struct LocaleInfo
 
     [OSStructureField(Description = "Comma-separated list of native digit characters (e.g. '0,1,2,...,9' or locale-specific digits).")]
     public string NativeDigits { get; set; }
-}
-
-[OSStructure(Description = "Result of parsing a locale-formatted decimal string.")]
-public struct ParseDecimalResult
-{
-    [OSStructureField(Description = "True when the input string was successfully parsed into a decimal value.")]
-    public bool IsValidDecimal { get; set; }
-
-    [OSStructureField(Description = "Error code: 0 = no error, 1 = empty string, 2 = invalid locale, 3 = format error, 4 = other error.")]
-    public int ErrorMessageCode { get; set; }
-
-    [OSStructureField(Description = "Error message describing why parsing failed. Empty on success.")]
-    public string ErrorMessage { get; set; }
-
-    [OSStructureField(Description = "The parsed decimal value. Defaults to 0 when IsValidDecimal is false.")]
-    public decimal Value { get; set; }
 }

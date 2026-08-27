@@ -1,7 +1,7 @@
 using System.Globalization;
 using System.Text;
 
-namespace FormatCurrency;
+namespace OutSystems.FormatCurrency;
 
 public class FormatCurrency : IFormatCurrency
 {
@@ -14,36 +14,37 @@ public class FormatCurrency : IFormatCurrency
     private static readonly string[] NegativePatterns = { "($n)", "-$n", "$-n", "$n-", "(n$)", "-n$", "n-$", "n$-", "-n $", "-$ n", "n $-", "$ n-", "$ -n", "n- $", "($ n)", "(n $)", "$- n" };
     private static readonly string[] PositivePatterns = { "$n", "n$", "$ n", "n $" };
 
-    public string GetCurrencyFormattedByLocale(
-        string locale, decimal value, bool hasCurrency, string currency,
-        bool useNativeDigits, bool useChineseExtendedNumbers, bool useFinancialChinese)
+    public void GetCurrencyFormattedByLocale(
+        string Locale, decimal Decimal, bool HasCurrency, string Currency,
+        bool UseNativeDigits, bool UseChineseExtendedNumbers, bool UseFinancialChinese,
+        out string FormattedText)
     {
         CultureInfo ci;
-        try { ci = CultureInfo.GetCultureInfo(locale); }
+        try { ci = CultureInfo.GetCultureInfo(Locale); }
         catch { ci = CultureInfo.InvariantCulture; }
 
         var nfi = (NumberFormatInfo)ci.NumberFormat.Clone();
 
-        if (!string.IsNullOrEmpty(currency))
-            nfi.CurrencySymbol = currency;
+        if (!string.IsNullOrEmpty(Currency))
+            nfi.CurrencySymbol = Currency;
 
-        if (!hasCurrency)
+        if (!HasCurrency)
             nfi.CurrencySymbol = "";
 
-        if (useChineseExtendedNumbers && useNativeDigits && locale.StartsWith("zh", StringComparison.OrdinalIgnoreCase))
+        if (UseChineseExtendedNumbers && UseNativeDigits && Locale.StartsWith("zh", StringComparison.OrdinalIgnoreCase))
         {
-            var digits  = useFinancialChinese ? ChineseDigitsFinancial : ChineseDigits;
-            var bigNums = useFinancialChinese ? ChineseBigNumsFinancial : ChineseBigNums;
+            var digits  = UseFinancialChinese ? ChineseDigitsFinancial : ChineseDigits;
+            var bigNums = UseFinancialChinese ? ChineseBigNumsFinancial : ChineseBigNums;
 
-            long wholePart = (long)Math.Truncate(Math.Abs(value));
+            long wholePart = (long)Math.Truncate(Math.Abs(Decimal));
             string formatted;
 
-            string absStr = Math.Abs(value).ToString(CultureInfo.InvariantCulture);
+            string absStr = Math.Abs(Decimal).ToString(CultureInfo.InvariantCulture);
             int dotIdx = absStr.IndexOf('.');
             if (dotIdx > 0)
             {
                 int decLen = absStr.Length - dotIdx - 1;
-                long decimalPart = (long)(Math.Pow(10, decLen) * ((double)(Math.Abs(value) - Math.Truncate(Math.Abs(value)))));
+                long decimalPart = (long)(Math.Pow(10, decLen) * ((double)(Math.Abs(Decimal) - Math.Truncate(Math.Abs(Decimal)))));
                 string decPartStr = decimalPart.ToString();
 
                 nfi.CurrencyDecimalSeparator = "点";
@@ -60,41 +61,39 @@ public class FormatCurrency : IFormatCurrency
                 formatted = ChineseNumberConvert(wholePart, digits, bigNums);
             }
 
-            if (value >= 0)
+            if (Decimal >= 0)
             {
                 int pp = nfi.CurrencyPositivePattern;
                 string posPattern = pp < PositivePatterns.Length ? PositivePatterns[pp] : "$n";
-                return posPattern.Replace("n", formatted).Replace("$", nfi.CurrencySymbol);
+                FormattedText = posPattern.Replace("n", formatted).Replace("$", nfi.CurrencySymbol);
             }
             else
             {
                 int np = nfi.CurrencyNegativePattern;
                 string negPattern = np < NegativePatterns.Length ? NegativePatterns[np] : "($n)";
-                return negPattern.Replace("n", formatted).Replace("-", nfi.NegativeSign).Replace("$", nfi.CurrencySymbol);
+                FormattedText = negPattern.Replace("n", formatted).Replace("-", nfi.NegativeSign).Replace("$", nfi.CurrencySymbol);
             }
         }
         else
         {
-            string result = value.ToString("C", nfi);
+            FormattedText = Decimal.ToString("C", nfi);
 
-            if (useNativeDigits)
+            if (UseNativeDigits)
             {
                 for (int i = 0; i < nfi.NativeDigits.Length; i++)
-                    result = result.Replace(i.ToString(), nfi.NativeDigits[i]);
+                    FormattedText = FormattedText.Replace(i.ToString(), nfi.NativeDigits[i]);
             }
-
-            return result;
         }
     }
 
-    public List<LocaleInfo> GetLocales()
+    public void GetLocales(out List<Locale> ListofLocals)
     {
-        var list = new List<LocaleInfo>();
+        ListofLocals = new List<Locale>();
 
         foreach (CultureInfo ci in CultureInfo.GetCultures(CultureTypes.AllCultures))
         {
             var nfi = ci.NumberFormat;
-            list.Add(new LocaleInfo
+            ListofLocals.Add(new Locale
             {
                 Name                     = ci.DisplayName,
                 RFC4646                  = ci.Name,
@@ -116,69 +115,63 @@ public class FormatCurrency : IFormatCurrency
                 CurrencySymbol           = nfi.CurrencySymbol,
             });
         }
-
-        return list;
     }
 
-    public ParseDecimalResult GetDecimalFromLocaleDecimalString(string inputLocaleDecimalString, string locale, string currency)
+    public void GetDecimalFromLocaleDecimalString(
+        string InputLocalelDecimalString, string Locale, string Currency,
+        out bool IsValidDecimal, out int ErrorMessageCode, out string ErrorMessage, out decimal Decimal)
     {
-        var result = new ParseDecimalResult
-        {
-            IsValidDecimal   = true,
-            ErrorMessageCode = 0,
-            ErrorMessage     = "",
-            Value            = 0.0m
-        };
+        IsValidDecimal   = true;
+        ErrorMessageCode = 0;
+        ErrorMessage     = "";
+        Decimal          = 0.0m;
 
-        if (string.IsNullOrEmpty(inputLocaleDecimalString))
+        if (string.IsNullOrEmpty(InputLocalelDecimalString))
         {
-            result.IsValidDecimal   = false;
-            result.ErrorMessage     = "String Empty";
-            result.ErrorMessageCode = 1;
-            return result;
+            IsValidDecimal   = false;
+            ErrorMessage     = "String Empty";
+            ErrorMessageCode = 1;
+            return;
         }
 
         CultureInfo culture;
-        try { culture = CultureInfo.GetCultureInfo(locale); }
+        try { culture = CultureInfo.GetCultureInfo(Locale); }
         catch (CultureNotFoundException)
         {
-            result.IsValidDecimal   = false;
-            result.ErrorMessage     = "Locale Invalid/Not Provided";
-            result.ErrorMessageCode = 2;
-            return result;
+            IsValidDecimal   = false;
+            ErrorMessage     = "Locale Invalid/Not Provided";
+            ErrorMessageCode = 2;
+            return;
         }
 
         try
         {
             var nfi = (NumberFormatInfo)culture.NumberFormat.Clone();
 
-            // Replace native digits with 0-9
-            string input = inputLocaleDecimalString;
+            string input = InputLocalelDecimalString;
             for (int i = 0; i < nfi.NativeDigits.Length; i++)
             {
                 if (input.Contains(nfi.NativeDigits[i]))
                     input = input.Replace(nfi.NativeDigits[i], i.ToString());
             }
 
-            if (!string.IsNullOrEmpty(currency))
-                nfi.CurrencySymbol = currency;
+            if (!string.IsNullOrEmpty(Currency))
+                nfi.CurrencySymbol = Currency;
 
-            result.Value = decimal.Parse(input, NumberStyles.Currency, nfi);
+            Decimal = decimal.Parse(input, NumberStyles.Currency, nfi);
         }
         catch (FormatException e)
         {
-            result.IsValidDecimal   = false;
-            result.ErrorMessage     = "FormatException [" + e + "]";
-            result.ErrorMessageCode = 3;
+            IsValidDecimal   = false;
+            ErrorMessage     = "FormatException [" + e + "]";
+            ErrorMessageCode = 3;
         }
         catch (Exception e)
         {
-            result.IsValidDecimal   = false;
-            result.ErrorMessage     = "Other Errors [" + e + "]";
-            result.ErrorMessageCode = 4;
+            IsValidDecimal   = false;
+            ErrorMessage     = "Other Errors [" + e + "]";
+            ErrorMessageCode = 4;
         }
-
-        return result;
     }
 
     // ── Chinese number conversion ─────────────────────────────────────────────
