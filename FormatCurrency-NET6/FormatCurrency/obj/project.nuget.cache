@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "iiDi98bvEeioAUiLjppgTS9mCtRQzQrARy+iJMLs8Bc+LS0y7VV8WvBWXoMBtTqCQWmRpDiIYw8l4STInyPPXA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\acrespor\\OneDrive - NTT DATA EMEAL\\Documentos Profissionais\\C00 - Outsystems Data\\ComponentsCreated\\ODC\\FormatCurrency\\OutSystems.FormatCurrency.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\acrespor\\.nuget\\packages\\outsystems.externallibraries.sdk\\1.3.2\\outsystems.externallibraries.sdk.1.3.2.nupkg.sha512"
+  ],
+  "logs": []
+}

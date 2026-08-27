@@ -1,0 +1,108 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "OutSystems.ExternalLibraries.SDK/1.3.2": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/OutSystems.ExternalLibraries.SDK.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/OutSystems.ExternalLibraries.SDK.dll": {
+            "related": ".xml"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "OutSystems.ExternalLibraries.SDK/1.3.2": {
+      "sha512": "NX3Txx6rBMbfGJiYueATQSiXECH40qb7B2hIvIQDWZEf4upfIwcl+NPAKRFQ6rbeuQFzVCso9HP6NoO4szwFPQ==",
+      "type": "package",
+      "path": "outsystems.externallibraries.sdk/1.3.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "OutSystems.png",
+        "README.MD",
+        "lib/net6.0/OutSystems.ExternalLibraries.SDK.dll",
+        "lib/net6.0/OutSystems.ExternalLibraries.SDK.xml",
+        "lib/netstandard2.0/OutSystems.ExternalLibraries.SDK.dll",
+        "lib/netstandard2.0/OutSystems.ExternalLibraries.SDK.xml",
+        "outsystems.externallibraries.sdk.1.3.2.nupkg.sha512",
+        "outsystems.externallibraries.sdk.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "OutSystems.ExternalLibraries.SDK >= 1.3.2"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\acrespor\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\acrespor\\OneDrive - NTT DATA EMEAL\\Documentos Profissionais\\C00 - Outsystems Data\\ComponentsCreated\\ODC\\FormatCurrency\\OutSystems.FormatCurrency.csproj",
+      "projectName": "OutSystems.FormatCurrency",
+      "projectPath": "C:\\Users\\acrespor\\OneDrive - NTT DATA EMEAL\\Documentos Profissionais\\C00 - Outsystems Data\\ComponentsCreated\\ODC\\FormatCurrency\\OutSystems.FormatCurrency.csproj",
+      "packagesPath": "C:\\Users\\acrespor\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\acrespor\\OneDrive - NTT DATA EMEAL\\Documentos Profissionais\\C00 - Outsystems Data\\ComponentsCreated\\ODC\\FormatCurrency\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\acrespor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "dependencies": {
+          "OutSystems.ExternalLibraries.SDK": {
+            "target": "Package",
+            "version": "[1.3.2, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
