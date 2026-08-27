@@ -1,0 +1,4 @@
+C:\Users\acrespor\OneDrive - NTT DATA EMEAL\Documentos Profissionais\C00 - Outsystems Data\ComponentsCreated\ODC\FormatCurrency-UpdateTo8\FormatCurrency\bin\Release\net8.0\publish\OutSystems.FormatCurrency.dll
+C:\Users\acrespor\OneDrive - NTT DATA EMEAL\Documentos Profissionais\C00 - Outsystems Data\ComponentsCreated\ODC\FormatCurrency-UpdateTo8\FormatCurrency\bin\Release\net8.0\publish\OutSystems.FormatCurrency.deps.json
+C:\Users\acrespor\OneDrive - NTT DATA EMEAL\Documentos Profissionais\C00 - Outsystems Data\ComponentsCreated\ODC\FormatCurrency-UpdateTo8\FormatCurrency\bin\Release\net8.0\publish\OutSystems.FormatCurrency.pdb
+C:\Users\acrespor\OneDrive - NTT DATA EMEAL\Documentos Profissionais\C00 - Outsystems Data\ComponentsCreated\ODC\FormatCurrency-UpdateTo8\FormatCurrency\bin\Release\net8.0\publish\OutSystems.ExternalLibraries.SDK.dll

@@ -1,0 +1,12 @@
+C:\Users\acrespor\OneDrive - NTT DATA EMEAL\Documentos Profissionais\C00 - Outsystems Data\ComponentsCreated\ODC\FormatCurrency-UpdateTo8\FormatCurrency\bin\Debug\net8.0\OutSystems.FormatCurrency.deps.json
+C:\Users\acrespor\OneDrive - NTT DATA EMEAL\Documentos Profissionais\C00 - Outsystems Data\ComponentsCreated\ODC\FormatCurrency-UpdateTo8\FormatCurrency\bin\Debug\net8.0\OutSystems.FormatCurrency.dll
+C:\Users\acrespor\OneDrive - NTT DATA EMEAL\Documentos Profissionais\C00 - Outsystems Data\ComponentsCreated\ODC\FormatCurrency-UpdateTo8\FormatCurrency\bin\Debug\net8.0\OutSystems.FormatCurrency.pdb
+C:\Users\acrespor\OneDrive - NTT DATA EMEAL\Documentos Profissionais\C00 - Outsystems Data\ComponentsCreated\ODC\FormatCurrency-UpdateTo8\FormatCurrency\obj\Debug\net8.0\OutSystems.FormatCurrency.csproj.AssemblyReference.cache
+C:\Users\acrespor\OneDrive - NTT DATA EMEAL\Documentos Profissionais\C00 - Outsystems Data\ComponentsCreated\ODC\FormatCurrency-UpdateTo8\FormatCurrency\obj\Debug\net8.0\OutSystems.FormatCurrency.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acrespor\OneDrive - NTT DATA EMEAL\Documentos Profissionais\C00 - Outsystems Data\ComponentsCreated\ODC\FormatCurrency-UpdateTo8\FormatCurrency\obj\Debug\net8.0\OutSystems.FormatCurrency.AssemblyInfoInputs.cache
+C:\Users\acrespor\OneDrive - NTT DATA EMEAL\Documentos Profissionais\C00 - Outsystems Data\ComponentsCreated\ODC\FormatCurrency-UpdateTo8\FormatCurrency\obj\Debug\net8.0\OutSystems.FormatCurrency.AssemblyInfo.cs
+C:\Users\acrespor\OneDrive - NTT DATA EMEAL\Documentos Profissionais\C00 - Outsystems Data\ComponentsCreated\ODC\FormatCurrency-UpdateTo8\FormatCurrency\obj\Debug\net8.0\OutSystems.FormatCurrency.csproj.CoreCompileInputs.cache
+C:\Users\acrespor\OneDrive - NTT DATA EMEAL\Documentos Profissionais\C00 - Outsystems Data\ComponentsCreated\ODC\FormatCurrency-UpdateTo8\FormatCurrency\obj\Debug\net8.0\OutSystems.FormatCurrency.dll
+C:\Users\acrespor\OneDrive - NTT DATA EMEAL\Documentos Profissionais\C00 - Outsystems Data\ComponentsCreated\ODC\FormatCurrency-UpdateTo8\FormatCurrency\obj\Debug\net8.0\refint\OutSystems.FormatCurrency.dll
+C:\Users\acrespor\OneDrive - NTT DATA EMEAL\Documentos Profissionais\C00 - Outsystems Data\ComponentsCreated\ODC\FormatCurrency-UpdateTo8\FormatCurrency\obj\Debug\net8.0\OutSystems.FormatCurrency.pdb
+C:\Users\acrespor\OneDrive - NTT DATA EMEAL\Documentos Profissionais\C00 - Outsystems Data\ComponentsCreated\ODC\FormatCurrency-UpdateTo8\FormatCurrency\obj\Debug\net8.0\ref\OutSystems.FormatCurrency.dll

@@ -1,0 +1,12 @@
+C:\Users\acrespor\Desktop\vsSolutions\FormatCurrency\obj\Release\net6.0\linux-x64\FormatCurrency.csproj.AssemblyReference.cache
+C:\Users\acrespor\Desktop\vsSolutions\FormatCurrency\obj\Release\net6.0\linux-x64\FormatCurrency.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acrespor\Desktop\vsSolutions\FormatCurrency\obj\Release\net6.0\linux-x64\FormatCurrency.AssemblyInfoInputs.cache
+C:\Users\acrespor\Desktop\vsSolutions\FormatCurrency\obj\Release\net6.0\linux-x64\FormatCurrency.AssemblyInfo.cs
+C:\Users\acrespor\Desktop\vsSolutions\FormatCurrency\obj\Release\net6.0\linux-x64\FormatCurrency.csproj.CoreCompileInputs.cache
+C:\Users\acrespor\Desktop\vsSolutions\FormatCurrency\bin\Release\net6.0\linux-x64\FormatCurrency.deps.json
+C:\Users\acrespor\Desktop\vsSolutions\FormatCurrency\bin\Release\net6.0\linux-x64\FormatCurrency.dll
+C:\Users\acrespor\Desktop\vsSolutions\FormatCurrency\bin\Release\net6.0\linux-x64\FormatCurrency.pdb
+C:\Users\acrespor\Desktop\vsSolutions\FormatCurrency\obj\Release\net6.0\linux-x64\FormatCurrency.dll
+C:\Users\acrespor\Desktop\vsSolutions\FormatCurrency\obj\Release\net6.0\linux-x64\refint\FormatCurrency.dll
+C:\Users\acrespor\Desktop\vsSolutions\FormatCurrency\obj\Release\net6.0\linux-x64\FormatCurrency.pdb
+C:\Users\acrespor\Desktop\vsSolutions\FormatCurrency\obj\Release\net6.0\linux-x64\ref\FormatCurrency.dll
